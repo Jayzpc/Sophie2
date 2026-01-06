@@ -1,0 +1,11 @@
+
+
+
+.galleryDelete,
+.galleryForm {
+        display: none;
+    }
+
+.show {
+        display: block;
+    }

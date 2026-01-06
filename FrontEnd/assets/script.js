@@ -2,7 +2,7 @@
 
 // swagger documentation
 //	<figure>
-//				<img src="assets/images/${imageURL}" alt="${altText}">
+//	HTML -----------> <img src="assets/images/${imageURL}" alt="${altText}">
 // modify the line above to match your data structure
 // <img src="${imageURL}" alt="${altText}">
 
@@ -63,4 +63,15 @@ galleryElement.innerHTML = result;
 
 // Call the function to display the gallery when the page loads
 // if you want to filter by category add a number in the brackets
-displayGallery();
+// displayGallery()
+
+const galleryModal = document.getElementById('galleryModal')
+const galleryFormButton = document.getElementById('gallery-form-button')
+
+galleryFormButton.addEventListener('click', () => {
+const galleryDeleteElement = galleryModal.querySelector('.galleryDelete')
+const galleryFormElement = galleryModal.querySelector('.galleryForm')
+
+galleryDeleteElement.classList.remove('show')
+galleryFormElement.classList.add('show')
+})

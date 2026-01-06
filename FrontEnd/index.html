@@ -9,6 +9,7 @@
 	<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Work+Sans&display=swap" rel="stylesheet">
 	<meta name="description" content="">
 	<link rel="stylesheet" href="./assets/style.css">
+	<link rel="stylesheet" href="./assets/forms.css">
 </head>
 <body>
 <header>
@@ -36,7 +37,24 @@
 	</section>
 	<section id="portfolio">
 		<h2>My Projects</h2>
+
+		<button type="button" class="btn-edit" popovertarget="galleryModal">Edit Gallery</button>
+		<div id="galleryModal" class="modal" popover>
+
+			<div class="galleryDelete show"> 
+				Delete Mode
+
+				<button id="gallery-form-button" type="button" class="btn-add">Add Image</button>
+			</div>
+
+
+			<div class="galleryForm"> ADD form</div>
+
+
+		</div>
+
 		<div class="gallery">
+			
 			
 		</div>
 	</section>
