@@ -8,4 +8,10 @@
 
 .show {
         display: block;
+        align-items: center;
     }
+
+.uploadImage {
+    align-items: center;
+
+}
