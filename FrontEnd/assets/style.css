@@ -189,6 +189,12 @@ footer nav ul {
 	margin: 2em
 }
 
+.galleryDelete {
+	width: 630px;
+	height: auto;
+	align-items: center;
+}
+
 
 .galleryForm{
      width: 630px;
@@ -200,3 +206,22 @@ footer nav ul {
 .photoUpload {
 	align-items: center;
 }
+
+.popup {
+	background-color: orange;
+	align-content: center;
+}
+
+.show {
+	display: block;
+}
+
+.galleryDelete {
+background-color: orange;
+}
+
+.Hide {
+	display: none	
+
+}
+

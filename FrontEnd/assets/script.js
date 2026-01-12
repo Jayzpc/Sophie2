@@ -68,10 +68,20 @@ galleryElement.innerHTML = result;
 const galleryModal = document.getElementById('galleryModal')
 const galleryFormButton = document.getElementById('gallery-form-button')
 
+
 galleryFormButton.addEventListener('click', () => {
 const galleryDeleteElement = galleryModal.querySelector('.galleryDelete')
 const galleryFormElement = galleryModal.querySelector('.galleryForm')
 
 galleryDeleteElement.classList.remove('show')
 galleryFormElement.classList.add('show')
-})
+
+const galleryModal = document.getElementById('galleryModal')
+const galleryConfirmButton = document.getElementById('galleryConfirm')
+
+galleryConfirmButton.addEventListener('click', () => {
+const galleryDeleteElement = galleryModal.querySelector('.galleryForm')
+const galleryConfirmElement = galleryModal.querySelector('.galleryConfirm')
+galleryFormElement.classList.remove('show')
+galleryConfirmElement.classList.add('show')
+})})
