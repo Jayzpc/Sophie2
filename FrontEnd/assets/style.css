@@ -225,3 +225,19 @@ background-color: orange;
 
 }
 
+/* Trash element inside the figure*/
+.positioned-element {
+	position: relative;
+}
+
+.trash
+{
+	z-index: 2; /*to have trash bin on top of modal*/
+/*positioning */
+	position: absolute;
+/*	top: 50px;*/
+	
+	background-color: black; /* Transparent background */
+	border: none;
+	color: grey;
+}

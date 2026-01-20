@@ -76,12 +76,33 @@ const galleryFormElement = galleryModal.querySelector('.galleryForm')
 galleryDeleteElement.classList.remove('show')
 galleryFormElement.classList.add('show')
 
-const galleryModal = document.getElementById('galleryModal')
-const galleryConfirmButton = document.getElementById('galleryConfirm')
 
-galleryConfirmButton.addEventListener('click', () => {
-const galleryDeleteElement = galleryModal.querySelector('.galleryForm')
-const galleryConfirmElement = galleryModal.querySelector('.galleryConfirm')
-galleryFormElement.classList.remove('show')
-galleryConfirmElement.classList.add('show')
+      const modalpop = document.querySelector('galleryModal.galleryDelete');
+        // Clear the gallery before displaying new or filtered works
+        modalpop.innerHTML = 'result';
+const figure = document.createElement('figure');
+const trash = document.createElement('button');
+trash.addEventListener('click', async (event) => {
+            trash.innerHTML = '<i class="fa-solid fa-trash"></i>';
+
+            /*trash.textContent = "trash"; //  */
+            trash.classList.add('trash');
+            figure.classList.add('positioned-element');
+            const modalimg = document.createElement('img');
+            /*const figcaption = document.createElement('figcaption');*/
+
+            figure.appendChild(trash);
+
+            modalimg.src = item.imageUrl;
+            modalimg.classList.add('modalimage');
+                        figure.appendChild(modalimg);
+            /*figure.appendChild(figcaption);*/
+            modalpop.appendChild(figure);
+modalpop.appendChild(item.categoryId);
+
 })})
+
+
+
+// Example usage: display all items
+//displayGallery();
