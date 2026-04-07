@@ -12,10 +12,14 @@
 
 // use try / catch to handle errors
 
-async function displayGallery(category, selector = '.gallery') {
+//@param {number|null} category
+//@param {string} selector
+//@param {boolean} isTrash
+
+async function displayGallery(category, selector = '.gallery', isTrash) {
 
     //where the data is going
-   // const portfolioElement = document.getElementById('portfolio')
+    // const portfolioElement = document.getElementById('portfolio')
 
 
     try {
@@ -32,6 +36,7 @@ async function displayGallery(category, selector = '.gallery') {
 
             // Loop through each item in the data array
             let result = ''
+            galleryElement.innerHTML = result;
             // Build the HTML structure for each item speicifying what to show
             // the word item is the type of data from swagger documentation
             data.forEach(item => {
@@ -43,68 +48,113 @@ async function displayGallery(category, selector = '.gallery') {
                 if (item.categoryId === category || !category) {
 
 
+              //      result += `<figure>
+           // <img src="${item.imageUrl}" alt="${item.title}">
+          //  <figcaption>"${item.title}"</figcaption>
+           // </figure>`
+                 if (isTrash) {
+
+                    const figure = document.createElement('figure');
+                    const img = document.createElement('img')
+                    const figcaption = document.createElement('figcaption')
+                    const trash = document.createElement('button');
+
+            
+
+
+                    figure.append(trash, img, figcaption)
+                    img.src = item.imageUrl
+                    img.alt = item.title
+                    figcaption.textContent = item.title
+                    trash.innerHTML = '<i class="fa-solid fa-trash"></i>'
+
+                    galleryElement.appendChild(figure)
+
+
+                    trash.addEventListener('click', async (event) => {
+                        trash.innerHTML = '<i class="fa-solid fa-trash"></i>';
+                        figure.remove()
+                        /*trash.textContent = "trash"; //  
+                        trash.classList.add('trash');
+                        figure.classList.add('positioned-element');
+                        const modalimg = document.createElement('img');
+                        const figcaption = document.createElement('figcaption');
+            
+                        figure.appendChild(trash);
+            
+                        modalimg.src = item.imageUrl;
+                        modalimg.classList.add('modalimage');
+                                    figure.appendChild(modalimg);
+                        figure.appendChild(figcaption);
+                        modalpop.appendChild(figure);
+            modalpop.appendChild(item.categoryId); */
+                    })
+
+                  } else {
                     result += `<figure>
             <img src="${item.imageUrl}" alt="${item.title}">
-            <figcaption>"${item.title}"</figcaption>
+           <figcaption>"${item.title}"</figcaption>
             </figure>`
-                }
-            })
-
-
-            galleryElement.innerHTML = result;
-
-        }
-
-    } catch (error) {
-
-        console.error(error)
-    }
+        
+                        }
+                    }
+        
+        if (!isTrash)
+                    galleryElement.innerHTML = result;
+        
+                })
+        
 }
+            } catch (error) {
+        
+                console.error(error)
+            }
+        }
+        
+        // Call the function to display the gallery when the page loads
+        // if you want to filter by category add a number in the brackets
+         displayGallery(null, "#portfolio-gallery")
+        
+        const galleryModal = document.getElementById('galleryModal')
+        const galleryModalBtn = document.getElementById("gallery-popover")
+        const galleryFormButton = document.getElementById('gallery-form-button')
+        
+        galleryModalBtn.addEventListener('click', () => {
+           displayGallery (null, ".galleryDelete .gallery")
+        })
+        
+        galleryFormButton.addEventListener('click', () => {
+            const galleryDeleteElement = galleryModal.querySelector('.galleryDelete')
+            const galleryFormElement = galleryModal.querySelector('.galleryForm')
+        
+            galleryDeleteElement.classList.remove('show')
+            galleryFormElement.classList.add('show')
+        
+            /*
+                  const modalpop = document.querySelector('galleryModal.galleryDelete');
+                    // Clear the gallery before displaying new or filtered works
+                    modalpop.innerHTML = 'result';
+            const figure = document.createElement('figure');
+            const trash = document.createElement('button');
+            trash.addEventListener('click', async (event) => {
+                        trash.innerHTML = '<i class="fa-solid fa-trash"></i>';
+            
+                        /*trash.textContent = "trash"; //  
+                        trash.classList.add('trash');
+                        figure.classList.add('positioned-element');
+                        const modalimg = document.createElement('img');
+                        /*const figcaption = document.createElement('figcaption');
+            
+                        figure.appendChild(trash);
+            
+                        modalimg.src = item.imageUrl;
+                        modalimg.classList.add('modalimage');
+                                    figure.appendChild(modalimg);
+                        /*figure.appendChild(figcaption);
+                        modalpop.appendChild(figure);
+            modalpop.appendChild(item.categoryId);*/
 
-// Call the function to display the gallery when the page loads
-// if you want to filter by category add a number in the brackets
- displayGallery(null, "#portfolio-gallery")
-
-const galleryModal = document.getElementById('galleryModal')
-const galleryModalBtn = document.getElementById("gallery-popover")
-const galleryFormButton = document.getElementById('gallery-form-button')
-
-galleryModalBtn.addEventListener('click', () => {
-   displayGallery (null, ".galleryDelete .gallery")
-})
-
-galleryFormButton.addEventListener('click', () => {
-    const galleryDeleteElement = galleryModal.querySelector('.galleryDelete')
-    const galleryFormElement = galleryModal.querySelector('.galleryForm')
-
-    galleryDeleteElement.classList.remove('show')
-    galleryFormElement.classList.add('show')
-
-    /*
-          const modalpop = document.querySelector('galleryModal.galleryDelete');
-            // Clear the gallery before displaying new or filtered works
-            modalpop.innerHTML = 'result';
-    const figure = document.createElement('figure');
-    const trash = document.createElement('button');
-    trash.addEventListener('click', async (event) => {
-                trash.innerHTML = '<i class="fa-solid fa-trash"></i>';
-    
-                /*trash.textContent = "trash"; //  
-                trash.classList.add('trash');
-                figure.classList.add('positioned-element');
-                const modalimg = document.createElement('img');
-                /*const figcaption = document.createElement('figcaption');
-    
-                figure.appendChild(trash);
-    
-                modalimg.src = item.imageUrl;
-                modalimg.classList.add('modalimage');
-                            figure.appendChild(modalimg);
-                /*figure.appendChild(figcaption);
-                modalpop.appendChild(figure);
-    modalpop.appendChild(item.categoryId);*/
-
-})
+                    })
 
 
 
