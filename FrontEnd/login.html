@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="EN">
+<head>
+	<meta charset="UTF-8">
+	<title>Sophie Bluel - Interior Designer</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Work+Sans&display=swap" rel="stylesheet">
+	<meta name="description" content="">
+	<link rel="stylesheet" href="./assets/style.css">
+	
+
+</head>
+<body>
+	<!-- <div id="editHead">Edit Mode</div> -->
+<header>
+	
+	<h1> <a href ="http://127.0.0.1:5500/FrontEnd/">Sophie Bluel</a><span>Interior Designer</span></h1>
+	<nav>
+		<ul>
+			<li>projects</li>
+			<li>contact</li>
+			<li>login</li>
+			<li><img src="./assets/icons/instagram.png" alt="Instagram"></li>
+		</ul>
+	</nav>
+</header>
+<main>
+
+	<h2>Login</h2>
+	<div id="login">
+	 <form>
+            <div class="form-group">
+              <label for="email">Email</label><br>
+              <input type="text" id="email" class="form-control" required><br>
+            </div>
+            <label for="password">Password</label><br>
+              <input type="password" id="password" class="form-control" required><br>
+           <br>
+            <button id="submit-button" type="submit" class="btn btn-primary">
+              Submit
+            </button>
+			 </div>
+          </form>
+<!--
+		  		<div class="form-group">
+			<div><label for="email">email</label>
+			<input type="text" name="email" id="email">
+			</div>
+			<div>
+			<label for="password">password</label>
+			<input type="email" name="password" id="password">
+			</div>
+			<button id="submit-button" type="submit" class="btn btn-primary">
+              Submit
+            </button>
+		</form>
+-->
+<section class="col-sm-10 offset-sm-1">
+          <p id="response-message"></p>
+          <h2 id="response-title"></h2>
+          <smqll id="response-id"></small>
+          <p id="response-content"></p>
+        </section>
+
+	</div>
+</main>
+
+<footer>
+	<nav>
+		<ul>
+			<li>Legal Notice</li>
+		</ul>
+	</nav>
+</footer>
+<script src="assets/login.js"></script>
+</body>
+</html>
